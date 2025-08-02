@@ -1,0 +1,136 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+about_us
+{% endblock %}
+
+{% block content %}
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Contact</h1>
+        <nav class="breadcrumbs">
+          <ol>
+           <li><a href="{% url 'home' %}">Home</a></li>
+
+            <li class="current">Contact</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="contact-main-wrapper">
+          <div class="map-wrapper">
+           <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7979.067598218898!2d34.7748776411648!3d-0.6842597472362689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1skisii%20university%20map!5e0!3m2!1sen!2ske!4v1752314338825!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7979.067598218898!2d34.7748776411648!3d-0.6842597472362689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1skisii%20university%20map!5e0!3m2!1sen!2ske!4v1752314338825!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+          <div class="contact-content">
+            <div class="contact-cards-container" data-aos="fade-up" data-aos-delay="300">
+              <div class="contact-card">
+                <div class="icon-box">
+                  <i class="bi bi-geo-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Location</h4>
+                  <p>8721 Broadway Avenue, New York, NY 10023</p>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <div class="icon-box">
+                  <i class="bi bi-envelope"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Email</h4>
+                  <p>info@examplecompany.com</p>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <div class="icon-box">
+                  <i class="bi bi-telephone"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Call</h4>
+                  <p>+1 (212) 555-7890</p>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <div class="icon-box">
+                  <i class="bi bi-clock"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Open Hours</h4>
+                  <p>Monday-Friday: 9AM - 6PM</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-form-container" data-aos="fade-up" data-aos-delay="400">
+              <h3>Get in Touch</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua consectetur adipiscing.</p>
+
+            <form method="post" class="php-email-form">
+  {% csrf_token %}
+
+  <div class="row">
+    <div class="col-md-6 form-group">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
+      {% if form.errors.name %}<small class="text-danger">{{ form.errors.name.0 }}</small>{% endif %}
+    </div>
+
+    <div class="col-md-6 form-group mt-3 mt-md-0">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" class="form-control" placeholder="Your Email" required>
+      {% if form.errors.email %}<small class="text-danger">{{ form.errors.email.0 }}</small>{% endif %}
+    </div>
+  </div>
+
+  <div class="form-group mt-3">
+    <label for="subject">Subject</label>
+    <input type="text" name="subject" id="subject" class="form-control" placeholder="Subject" required>
+    {% if form.errors.subject %}<small class="text-danger">{{ form.errors.subject.0 }}</small>{% endif %}
+  </div>
+
+  <div class="form-group mt-3">
+    <label for="message">Message</label>
+    <textarea name="message" id="message" rows="5" class="form-control" placeholder="Message" required></textarea>
+    {% if form.errors.message %}<small class="text-danger">{{ form.errors.message.0 }}</small>{% endif %}
+  </div>
+
+  <div class="my-3">
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  </div>
+
+  <div class="form-submit">
+    <button type="submit">Send Message</button>
+  </div>
+</form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Contact Section -->
+
+  </main>
+ <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+{% endblock %}
